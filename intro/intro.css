@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+#character {
+    width: 350px;
+    height: auto;
+    bottom: 50px;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 12;
+}
+
+#dialogue {
+    position: absolute;
+    bottom: 350px;
+    width: 60%;
+    left: 40%;
+    transform: translateX(-50%);
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 30px;
+    z-index: 11;
+}
+
+
+.dialogue-box {
+    color: #eadbdb;
+    position: absolute;
+    bottom: 350px;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 16px;
+    border-radius: 15px; 
+    box-shadow: #09100c;
+    font-size: 25px;
+    z-index: 11;
+}
+
+
+#choices {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 12;
+}
+
+#choices button {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    z-index: 12;
+}
+
+.choice-btn {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    display: none; 
+}
+
+.choice-btn:hover,
+.choice-btn:focus {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18), 0 4px 8px rgba(0,0,0,0.10);
+    outline: none;
+}
+
+.choice-btn:active {
+    transform: scale(0.97) translateY(1px);
+    filter: brightness(0.95);
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #85cfa4 0%, #85cfa4 100%);
+    color: white;
+    border-radius: 8px;
+}
+
+.no-btn {
+    background: linear-gradient(135deg, #FF6B9D 0%, #FF6B9D 100%);
+    color: white;
+    border-radius: 8px;
+}
