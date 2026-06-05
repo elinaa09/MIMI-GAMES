@@ -1,0 +1,18 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background: #87CEEB;
+    display: flex;
+    align-items: centre;
+    justify-content: center;
+height: 100vh;
+overflow: hidden;
+font-family:'Courier New', monospace;
+}
+canvas {
+    border-bottom: 4px solid #5a9e6f;
+    image-rendering: pixelated;
+}

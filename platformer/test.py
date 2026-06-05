@@ -21,7 +21,7 @@ def flip(sprites):
 
 #cut sprite
 def load_sprite_sheet_frames(path,frame_w,frame_h):
-    sheet=pygame.image.load(path).conver_alpha()
+    sheet=pygame.image.load(path).convert_alpha()
     frames=[]
     cols= sheet.get_width()//frame_w
     rows=pygame.get_height()//frame_h
@@ -34,7 +34,7 @@ def load_sprite_sheet_frames(path,frame_w,frame_h):
             return frames
 
 def get_block(size):
-    path = join("assets", "terrain", "Terrain.png")
+    path = join("assets"/"Terrain.png")
 
     if not os.path.isfile(path):
         path=join("assets", "blocks.png")
@@ -45,7 +45,7 @@ def get_block(size):
     return pygame.transform.scale2x(surface)
 
     def get_background(name):
-       image=pygame.image.load(os.path.join("assests", "backgrounds",name))
+       image=pygame.image.load(os.path.join("assests"/ "backgrounds"/name))
        rect= image.get_rect()
        width= rect.width
        height= rect.height
@@ -62,7 +62,7 @@ def get_block(size):
 class Player(pygame.sprite.Sprite):
         COLOR = (255, 0, 0)
         GRAVITY = 1
-        SPRITES = load_sprite_sheet_frames(os.path.join("main characters", "Mimi.png"), 32,32)
+        SPRITES = load_sprite_sheet_frames("Mimi.png", 32, 32)
         ANIMATION_DELAY = 4
 
         FRAME_W= 440  #dunno how works, change acc to sheet
@@ -83,8 +83,19 @@ def __init__(self, x, y, width, height):
         self.load_sprites()
         self.sprite=self.Sprites["idle_right"][0]
 
+class Enemy(Object):
+    def __init__(self, x, y, width, height, img_name):
+        super().__init__(x, y, width, height, "enemy")
+        path = join("assets", "enemy", img_name)
+        self.image = pygame.image.load(path).convert_alpha()
+        self.image = pygame.transform.scale(self.image, (width, height))
+        self.mask = pygame.mask.from_surface(self.image)
+
+    def loop(self):
+        pass
+
 def load_sprites(self):
-        path= join("assets","main characters","Mimi","Mimi.png")
+        path= join("Mimi.png")
 sheet= pygame.image.load(os.path).convert_alpha()
 
 def get_frame(col,row):
@@ -211,7 +222,7 @@ class Fire(Object):
 
     def __init__(self, x, y, width, height):
         super().__init__(x, y, width, height, "fire")
-        self.fire = load_sprite_sheets("Traps", "Fire", width, height)
+        self.fire = load_sprite_sheets( "Fire"/ width, height)
         self.image = self.fire["off"][0]
         self.mask = pygame.mask.from_surface(self.image)
         self.animation_count = 0
@@ -239,7 +250,7 @@ class Fire(Object):
 
 
 def get_background(name):
-    image = pygame.image.load(os.path.join("assets", "backgrounds", name))
+    image = pygame.image.load(os.path.join("assets"/ "backgrounds"/ name))
     _, _, width, height = image.get_rect()
     tiles = []
 
