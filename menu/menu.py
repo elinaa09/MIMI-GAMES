@@ -1,7 +1,7 @@
 import time
 import webbrowser
 import os
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 def menu():
     menu_options = ('h', 'x', 's', '1', '2', '3', '4', '5', '0')
 
@@ -32,7 +32,7 @@ def menu():
         print("Drive with Mimi")
     elif user_input == '3':
         print("Mimi the Runner")
-        webbrowser.open('file://' + os.path.join(BASE_DIR,'runner/run.html'))
+        webbrowser.open('file://' + os.path.join(BASE_DIR,'..', 'runner','run.html'))
 
     elif user_input == '4':
         print("option 4 has been called.")
@@ -54,5 +54,5 @@ def menu():
         print('exit? mimi will miss you')
         exit()
 
-menu()
+menu()  
 print("done.")
