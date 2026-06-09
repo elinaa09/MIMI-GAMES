@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Snake</title>
+        <link rel="stylesheet" href="snake.css">
+    </head>
+
+    <body>
+
+        <!-- background image sits behind everything -->
+        <img id="bg" src="bg.jpg" alt="">
+
+        <h1>Snake</h1>
+
+        <!-- score display above the canvas -->
+        <div id="score-board">
+            <span>Score: <span id="current-score">0</span></span>
+            <span>Best: <span id="high-score">0</span></span>
+        </div>
+
+        <canvas id="board"></canvas>
+
+        <!-- game over screen, hidden until game ends -->
+        <div id="game-over-screen" class="hidden">
+            <h2>Game Over!</h2>
+            <p>Score: <span id="final-score">0</span></p>
+            <p>Best: <span id="final-high-score">0</span></p>
+            <button id="restart-btn" onclick="restartGame()">Play Again</button>
+        </div>
+
+        <script src="snake.js"></script>
+    </body>
+</html>
