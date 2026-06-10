@@ -170,7 +170,6 @@ function detectCollision(a, b) {
            a.y + a.height > b.y;
 }
 
-// background image
-// FIXED: loaded separately so it's always ready
+
 const bgImg = new Image();
 bgImg.src = "./bg.jpg";

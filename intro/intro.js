@@ -57,7 +57,7 @@ function nextDialogue(e) {
 
 
 yesBtn.addEventListener("click", () => {
-  // Skip "Pleaseeeee~", go straight to "Yippieee!"
+  // Skip "Pleaseeeee~"
   showStep(3);
   yesBtn.style.display = "none";
   noBtn.style.display = "none";
@@ -74,7 +74,7 @@ document.addEventListener("click", (e) => {
   const newStep = step + 1;
   if (e.target === yesBtn || e.target === noBtn) return;
   if (newStep >= story.length){
-window.location.href="./menu.html";
+window.location.href="/menu/menu.html";
 return;
   }
   if (step === 1) return;

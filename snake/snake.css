@@ -26,8 +26,7 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    /* slight dark overlay effect using brightness */
-    filter: brightness(0.5);
+    
 }
 
 /*EVERYTHING ON TOP OF BG*/
@@ -45,7 +44,6 @@ h1 {
     font-size: 2rem;
     letter-spacing: 4px;
     margin-bottom: 10px;
-    text-shadow: 0 0 16px #ffe44d88;
 }
 
 /*SCORE BOARD*/
@@ -76,9 +74,6 @@ h1 {
     height: 100%;
     z-index: 10;
 
-    /* dark overlay */
-    background: rgba(0, 0, 0, 0.75);
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,7 +85,6 @@ h1 {
     color: #ff6b6b;
     font-size: 2.5rem;
     letter-spacing: 4px;
-    text-shadow: 0 0 20px #ff6b6b88;
 }
 
 #game-over-screen p {

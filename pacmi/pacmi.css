@@ -19,14 +19,12 @@ h1{
     font-size: 2rem;
     letter-spacing: 4px;
     margin-bottom:12px;
-    text-shadow: 0 0 20px #ffe44d88;
 }
 
 
 #board{
     background-color: #1a1a2e;
     border: 3px solid #ffe44d;
-    box-shadow: 0 0 30px #ffe44d44;
     display: block;
 }
 
