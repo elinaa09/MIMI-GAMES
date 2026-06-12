@@ -17,7 +17,7 @@ body {
     overflow: hidden;
 }
 
-/*BACKGROUND IMAGE*/
+
 #bg {
     position: fixed;
     top: 0;
@@ -29,7 +29,7 @@ body {
     
 }
 
-/*EVERYTHING ON TOP OF BG*/
+/*everything on top of bg*/
 h1,
 #score-board,
 #board,
@@ -38,7 +38,7 @@ h1,
     z-index: 1;
 }
 
-/*TITLE*/
+/*title*/
 h1 {
     color: #ffe44d;
     font-size: 2rem;
@@ -46,7 +46,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-/*SCORE BOARD*/
+
 #score-board {
     display: flex;
     gap: 40px;
@@ -56,7 +56,7 @@ h1 {
     letter-spacing: 2px;
 }
 
-/*CANVAS */
+/*canvas */
 #board {
     background-color: rgba(0, 0, 0, 0.75);
     border: 3px solid #ffe44d;
@@ -65,7 +65,7 @@ h1 {
     display: block;
 }
 
-/*GAME OVER SCREEN*/
+
 #game-over-screen {
     position: fixed;
     top: 0;
@@ -93,7 +93,7 @@ h1 {
     letter-spacing: 2px;
 }
 
-/* RESTART BUTTON  */
+
 #restart-btn {
     margin-top: 10px;
     background: #ffe44d;
@@ -110,16 +110,11 @@ h1 {
     box-shadow: 0 0 12px #ffe44d55;
 }
 
-#restart-btn:hover {
-    transform: scale(1.07);
-    box-shadow: 0 0 24px #ffe44daa;
-}
-
 #restart-btn:active {
     transform: scale(0.97);
 }
 
-/*HIDDEN HELPER*/
+
 .hidden {
     display: none !important;
 }

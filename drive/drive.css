@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/*BODY*/
+
 body {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
@@ -16,16 +16,15 @@ body {
     min-height: 100vh;
 }
 
-/*TITLE*/
+/*title*/
 h1 {
     color: #ffe44d;
     font-size: 2rem;
     letter-spacing: 4px;
     margin-bottom: 10px;
-    text-shadow: 0 0 16px #ffe44d88;
 }
 
-/* SCORE BOARD*/
+
 #score-board {
     display: flex;
     gap: 40px;
@@ -35,14 +34,14 @@ h1 {
     letter-spacing: 2px;
 }
 
-/*CANVAS*/
+/*canvas*/
 #board {
     border: 3px solid #ffe44d;
     box-shadow: 0 0 24px #ffe44d55;
     display: block;
 }
 
-/*GAME OVER SCREEN*/
+
 #game-over-screen {
     position: fixed;
     top: 0;
@@ -62,7 +61,6 @@ h1 {
     color: #ff6b6b;
     font-size: 2.5rem;
     letter-spacing: 4px;
-    text-shadow: 0 0 20px #ff6b6b88;
 }
 
 #game-over-screen p {
@@ -71,7 +69,7 @@ h1 {
     letter-spacing: 2px;
 }
 
-/* ===== PLAY AGAIN BUTTON ===== */
+
 #game-over-screen button {
     margin-top: 10px;
     background: #ffe44d;
@@ -85,7 +83,6 @@ h1 {
     letter-spacing: 2px;
     cursor: pointer;
     transition: transform 0.1s ease;
-    box-shadow: 0 0 12px #ffe44d55;
 }
 
 #game-over-screen button:hover {

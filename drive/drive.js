@@ -1,3 +1,7 @@
+const bgMusic = new Audio("../sounds/background.mp3");
+bgMusic.loop = true;
+bgMusic.play().catch(() => {});
+
 //canvas
 const canvas = document.getElementById("board");
 const ctx    = canvas.getContext("2d");
@@ -5,24 +9,21 @@ const ctx    = canvas.getContext("2d");
 canvas.width  = 500;
 canvas.height = 500;
  
-// ===== LANE POSITIONS (never change) =====
 const leftLane   = 150;
 const centerLane = 250;
 const rightLane  = 350;
 const lanes      = [leftLane, centerLane, rightLane];
  
-// ===== LANE MARKER ANIMATION =====
+
 let markerY = 0;
  
-// ===== PLAYER SIZE (never changes) =====
+//playersize
 const playerW = 50;
 const playerH = 80;
- 
-// ===== PLAYER POSITION (changes as player moves) =====
 let playerX = 250;
 let playerY = 400;
  
-// ===== IMAGES (the image objects never change, just their .src) =====
+
 const bgImage     = new Image();
 const playerImage = new Image();
 const sheetImage  = new Image();
@@ -33,17 +34,15 @@ playerImage.src = "car.png";
 sheetImage.src  = "othercar.png";
 fireImage.src   = "fire.png";
  
-// ===== SPRITESHEET INFO (never changes) =====
+//SPRITESHEET INFO
 const sheetCols = 4;
 const sheetRows = 4;
 const cellW     = 310;
 const cellH     = 480;
  
  
-// ===== OPPONENT CARS (the array changes as cars are added/removed) =====
 let cars = [];
  
-// ===== GAME VARIABLES (all change during the game) =====
 let score    = 0;
 let speed    = 4;
 let gameover = false;
@@ -81,7 +80,7 @@ document.addEventListener("keydown", function(e) {
 //ADD A NEW OPPONENT CAR
 function addCar() {
  
-    // pick a random lane
+    
     const randomLane = lanes[Math.floor(Math.random() * lanes.length)];
  
     // pick a random car from the spritesheet
@@ -101,7 +100,7 @@ function addCar() {
 }
  
  
-// ===== DRAW ONE CAR FROM THE SPRITESHEET =====
+
 function drawCarFromSheet(car) {
  
     // where to draw on the canvas
@@ -119,8 +118,6 @@ function drawCarFromSheet(car) {
     );
 }
  
- 
-// ===== CHECK COLLISION =====
 function isCrashing(car) {
  
     const playerLeft   = playerX - playerW / 2;
@@ -139,8 +136,7 @@ function isCrashing(car) {
     return hitsX && hitsY;
 }
  
- 
-// ===== GAME OVER =====
+
 function doGameOver() {
  
     gameover = true;
@@ -158,9 +154,8 @@ function doGameOver() {
 }
  
  
-// ===== RESTART =====
 function restartGame() {
- 
+    
     playerX  = 250;
     playerY  = 400;
     cars     = [];
@@ -172,10 +167,11 @@ function restartGame() {
     document.getElementById("current-score").textContent = 0;
     document.getElementById("high-score").textContent    = highScore;
     document.getElementById("game-over-screen").classList.add("hidden");
+    bgMusic.play(); clickSound.currentTime = 0; clickSound.play();
 }
  
  
-// ===== DRAW PLAYER =====
+
 function drawPlayer() {
  
     const x = playerX - playerW / 2;
@@ -190,7 +186,6 @@ function drawPlayer() {
 }
  
  
-// ===== DRAW ALL OPPONENT CARS =====
 function drawCars() {
  
     for (let i = 0; i < cars.length; i++) {
@@ -207,9 +202,8 @@ function drawCars() {
 }
  
  
-// ===== DRAW FIRE =====
 function drawFire() {
- 
+
     if (fireImage.complete) {
         ctx.drawImage(fireImage, crashX - 30, crashY - 30, 60, 60);
     } else {
@@ -219,7 +213,6 @@ function drawFire() {
 }
  
  
-// ===== MAIN UPDATE =====
 function update() {
  
     // draw background
@@ -255,20 +248,19 @@ function update() {
  
         cars[i].y = cars[i].y + speed;
  
-        // crashed into player?
+        
         if (isCrashing(cars[i])) {
             doGameOver();
             return;
         }
  
-        // went off the bottom?
+        // went off the bottom
         if (cars[i].y - cars[i].h / 2 > canvas.height) {
             cars.splice(i, 1);
             i = i - 1;
             score = score + 1;
             document.getElementById("current-score").textContent = score;
  
-            // speed up every 3 cars
             if (score % 3 == 0) {
                 speed = speed + 1;
             }
@@ -296,6 +288,6 @@ function update() {
 }
  
  
-// ===== START GAME LOOP =====
+//loop
 setInterval(update, 1000 / 60);
  

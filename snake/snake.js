@@ -1,31 +1,35 @@
-var blockSize = 25;
-var rows = 20;
-var cols = 20;
-var board;
-var context;
+const bgMusic = new Audio("../sounds/background.mp3");
+bgMusic.loop = true;
+bgMusic.play().catch(() => {});
 
-var snakeX = blockSize * 5;
-var snakeY = blockSize * 5;
+const blockSize = 25;
+const rows = 20;
+const cols = 20;
+let board;
+let context;
 
-var velocityX = 0;
-var velocityY = 0;
+let snakeX = blockSize * 5;
+let snakeY = blockSize * 5;
 
-var snakeBody = [];
+let velocityX = 0;
+let velocityY = 0;
 
-var foodX;
-var foodY;
+let snakeBody = [];
 
-var foodImage = new Image();
+let foodX;
+let foodY;
+
+const foodImage = new Image();
 foodImage.src = "food.png";
 
-var score = 0;
-var highScore = 0;
+let score = 0;
+let highScore = 0;
 
-var gameOver = false;
-var gameLoop;
+let gameOver = false;
+let gameLoop;
 
 window.onload = function() {
-    var saved = localStorage.getItem("snakeHighScore");
+    const saved = localStorage.getItem("snakeHighScore");
     if (saved) {
         highScore = parseInt(saved);
     }
@@ -61,7 +65,7 @@ function update() {
         document.getElementById("current-score").textContent = score;
     }
 
-    for (var i = snakeBody.length - 1; i > 0; i--) {
+    for (let i = snakeBody.length - 1; i > 0; i--) {
         snakeBody[i] = snakeBody[i - 1];
     }
     if (snakeBody.length > 0) {
@@ -73,7 +77,7 @@ function update() {
 
     context.fillStyle = "lime";
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
-    for (var i = 0; i < snakeBody.length; i++) {
+    for (let i = 0; i < snakeBody.length; i++) {
         context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
     }
 
@@ -83,7 +87,7 @@ function update() {
         return;
     }
 
-    for (var i = 0; i < snakeBody.length; i++) {
+    for (let i = 0; i < snakeBody.length; i++) {
         if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
             triggerGameOver();
             return;

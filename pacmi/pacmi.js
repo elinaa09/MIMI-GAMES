@@ -1,4 +1,12 @@
-//@ts-nocheck
+
+const bgMusic = new Audio("../sounds/background.mp3");
+bgMusic.loop = true;
+bgMusic.play().catch(() => {});
+
+let highScore = 0;
+const savedHigh = localStorage.getItem("pacmiHighScore");
+if (savedHigh) highScore = parseInt(savedHigh);
+
 
 //board
 let board;
@@ -54,7 +62,7 @@ let snakes= new Set();
 
 let pacmi;
 
-const directions = ['W', 'S', 'A', 'D']; //up down left right
+const directions = ['W', 'S', 'A', 'D']; 
 let score = 0;
 let lives = 3;
 let gameOver = false;
@@ -161,7 +169,7 @@ function loadMap() {
             const x = c*tileSize;
             const y = r*tileSize;
 
-            if (tileMapChar == 'X') { //block wall
+            if (tileMapChar == 'X') { 
                 const wall = new Block(wallImage, x, y, tileSize, tileSize);
                 walls.add(wall);  
             }
@@ -197,7 +205,7 @@ function update() {
 }
     move();
     draw();
-    setTimeout(update, 50); //1000/50 = 20 FPS
+    setTimeout(update, 50); 
 }
 
 function draw() {
@@ -284,7 +292,7 @@ function move() {
             break;
         }
     }
-    
+
     foods.delete(eaten);
 
     if (foods.size == 0){
@@ -314,10 +322,10 @@ function movePacmi(e) {
 
 
 function collision(a, b) {
-    return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
-           a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
-           a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
-           a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+    return a.x < b.x + b. width &&
+           a.x + a.width > b.x &&   
+           a.y < b.y + b.height &&  
+           a.y + a.height > b.y;    
  }       
 
 function resetPositions() {

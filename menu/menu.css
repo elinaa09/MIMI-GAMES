@@ -2,6 +2,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     padding: 40px;
+    background: #1a1a2e;
 }
 
 #bg {
@@ -12,24 +13,21 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    
 }
 
-/*EVERYTHING ON TOP OF BG*/
 h1,
-#score-board,
-#board,
-#game-over-screen {
+.menu-container,
+h3 {
     position: relative;
     z-index: 1;
 }
 
 h1 {
+    color: #010000;
     font-size: 2.5rem;
     margin-bottom: 40px;
 }
 
-/* The grid wrapper */
 .menu-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -38,7 +36,6 @@ h1 {
     margin: 0 auto;
 }
 
-/* Individual game cards */
 .game-card {
     border-radius: 12px;
     padding: 20px;
@@ -46,30 +43,32 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    z-index: 1;
 }
 
-/* Scaling effect when hovering over a game card */
 .game-card:hover {
     transform: translateY(-10px);
-    border-color: #ffd000;
+    border-color: #030200;
     box-shadow: 0 0 15px rgba(255, 242, 0, 0.314);
 }
 
-/* The game images */
 .game-img {
     width: 100%;
-    height: 150px;
+    height: 120px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
 }
 
 h3 {
+    color: white;
     margin: 10px 0 20px 0;
     font-size: 1.3rem;
 }
 
-/* Play Button */
 .play-btn {
     display: inline-block;
     background-color: #17471a;

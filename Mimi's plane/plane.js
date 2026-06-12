@@ -1,3 +1,11 @@
+const bgMusic = new Audio("../sounds/bg.mp3");
+bgMusic.loop = true;
+bgMusic.play().catch(() => {}); 
+
+let highScore = 0;
+const savedHigh = localStorage.getItem("planeHighScore");
+if (savedHigh) highScore = parseInt(savedHigh);
+
 //board
 let board;
 let boardWidth = window.innerWidth;
@@ -5,8 +13,8 @@ let boardHeight = window.innerHeight;
 let context;
 
 //plane
-let planeWidth = 60;   // FIXED: was 10, too small to see
-let planeHeight = 40;  // FIXED: was 10, too small to see
+let planeWidth = 60;   
+let planeHeight = 40;  
 let planeX = boardWidth/8;
 let planeY = boardHeight/2;
 let planeImg;
@@ -31,7 +39,7 @@ let bottompoleImg;
 //physics
 let velocityX = -2;
 let velocityY = -4;
-let gravity = 0.02;  // strong enough to pull back down quickly
+let gravity = 0.02;  
 
 let gameOver = false;
 let score = 0;
@@ -40,14 +48,13 @@ window.onload = function() {
     board = document.getElementById("board");
     board.height = boardHeight;
     board.width = boardWidth;
-    context = board.getContext("2d");
+    context = board.getContext("2d")
 
-    // FIXED: load all images first, only start game when ALL are ready
     let imagesLoaded = 0;
 
     function onLoad() {
         imagesLoaded++;
-        // wait until all 3 images are loaded before starting
+        
         if (imagesLoaded == 3) {
             requestAnimationFrame(update);
             setInterval(placepoles, 1500);
@@ -76,7 +83,7 @@ function update() {
     }
     context.clearRect(0, 0, board.width, board.height);
 
-    // FIXED: draw background image instead of leaving it blank
+    
     context.drawImage(bgImg, 0, 0, boardWidth, boardHeight);
 
     //plane
@@ -85,8 +92,8 @@ function update() {
     context.drawImage(planeImg, plane.x, plane.y, plane.width, plane.height);
 
     if (plane.y > board.height) {
-        gameOver = true;
-    }
+    gameOver = true;
+}
 
     //poles
     for (let i = 0; i < poleArray.length; i++) {
@@ -99,9 +106,9 @@ function update() {
             pole.passed = true;
         }
 
-        if (detectCollision(plane, pole)) {
-            gameOver = true;
-        }
+       if (detectCollision(plane, pole)) {
+    doGameOver();
+}
     }
 
     //clear poles that went off screen
@@ -112,13 +119,8 @@ function update() {
     //score
     context.fillStyle = "white";
     context.font = "45px sans-serif";
-    context.fillText(Math.floor(score), 5, 45);  // FIXED: Math.floor so no 0.5, 1.5 etc
+    context.fillText(Math.floor(score), 5, 45);
 
-    if (gameOver) {
-        context.fillText("GAME OVER", 5, 90);
-        context.font = "20px sans-serif";
-        context.fillText("Press Space to restart", 5, 130);
-    }
 }
 
 function placepoles() {
@@ -127,7 +129,7 @@ function placepoles() {
     }
 
     let randompoleY = -poleHeight + Math.random() * (board.height / 2);
-    let openingSpace = 180;  // fixed gap in pixels between top and bottom pole
+    let openingSpace = 180;  // fixed gap between top and bottom pole
 
     let toppole = {
         img : toppoleImg,
@@ -170,6 +172,27 @@ function detectCollision(a, b) {
            a.y + a.height > b.y;
 }
 
+function doGameOver() {
+    gameOver = true;
+    if (Math.floor(score) > highScore) {
+        highScore = Math.floor(score);
+        localStorage.setItem("planeHighScore", highScore);
+    }
+    document.getElementById("final-score").textContent = Math.floor(score);
+    document.getElementById("final-high").textContent = highScore;
+    document.getElementById("high-score").textContent = highScore;
+    document.getElementById("game-over-screen").classList.remove("hidden");
+}
+
+function restartPlane() {
+    plane.y = planeY;
+    poleArray = [];
+    score = 0;
+    gameOver = false;
+    document.getElementById("current-score").textContent = 0;
+    document.getElementById("game-over-screen").classList.add("hidden");
+    requestAnimationFrame(update);
+}
 
 const bgImg = new Image();
 bgImg.src = "./bg.jpg";

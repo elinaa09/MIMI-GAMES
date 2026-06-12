@@ -2,12 +2,26 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport", content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mimi's plane</title>
         <link rel="stylesheet" href="plane.css">
     </head>
 
-         <canvas id="board"></canvas>
-         <script src="plane.js"></script>
+    <body>
+        <div id="score-board">
+            <span>Score: <span id="current-score">0</span></span>
+            <span>Best: <span id="high-score">0</span></span>
+        </div>
+
+        <canvas id="board"></canvas>
+        
+        <div id="game-over-screen" class="hidden">
+            <h2>Game Over!</h2>
+            <p>Score: <span id="final-score">0</span></p>
+            <p>Best: <span id="final-high">0</span></p>
+            <button onclick="restartPlane()">Play Again</button>
+        </div>
+
+        <script src="plane.js"></script>
     </body>
 </html>

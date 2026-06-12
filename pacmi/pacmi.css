@@ -15,7 +15,7 @@ font-family: monospace;
 }
 
 h1{
-    color:#ffe44d;
+    color:#0a0900;
     font-size: 2rem;
     letter-spacing: 4px;
     margin-bottom:12px;
@@ -24,7 +24,7 @@ h1{
 
 #board{
     background-color: #1a1a2e;
-    border: 3px solid #ffe44d;
+    border: 3px solid #080700;
     display: block;
 }
 
