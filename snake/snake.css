@@ -40,7 +40,7 @@ h1,
 
 /*title*/
 h1 {
-    color: #ffe44d;
+    color: #090800;
     font-size: 2rem;
     letter-spacing: 4px;
     margin-bottom: 10px;
@@ -59,9 +59,9 @@ h1 {
 /*canvas */
 #board {
     background-color: rgba(0, 0, 0, 0.75);
-    border: 3px solid #ffe44d;
+    border: 3px solid #050400;
     border-radius: 4px;
-    box-shadow: 0 0 24px #ffe44d55;
+    box-shadow: 0 0 24px #00000055;
     display: block;
 }
 
@@ -96,7 +96,7 @@ h1 {
 
 #restart-btn {
     margin-top: 10px;
-    background: #ffe44d;
+    background: #eae9e4;
     color: #1a1a2e;
     border: none;
     border-radius: 8px;

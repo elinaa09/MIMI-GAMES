@@ -89,7 +89,6 @@ body {
     display: none; 
 }
 
-.choice-btn:hover,
 .choice-btn:focus {
     transform: scale(1.08) translateY(-3px);
     box-shadow: 0 12px 28px rgba(0,0,0,0.18);
@@ -112,4 +111,14 @@ body {
     color: white;
     border-radius: 8px;
 }
+.ok-btn {
+    background: linear-gradient(135deg, #022410 0%, #032a13 100%);
+    color: white;
+    border-radius: 8px;
+}
 
+.okay-btn {
+    background: linear-gradient(135deg, #022410 0%, #032a13 100%);
+    color: white;
+    border-radius: 8px;
+}

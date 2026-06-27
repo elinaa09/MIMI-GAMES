@@ -234,7 +234,7 @@ for (let wall of walls.values()) {
 
     //score
     context.drawImage(pacmiImage, pacmi.x, pacmi.y, pacmi.width, pacmi.height);
-    context.fillStyle = gameOver? "red" : "white";
+    context.fillStyle = gameOver? "red": "green";  
     context.font= "bold 14px monospace";
     if (gameOver) {
       context.fillText("Game Over: " + String(score), tileSize/2, tileSize/2);  
