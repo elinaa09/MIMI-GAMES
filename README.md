@@ -8,6 +8,9 @@ game2: Mimi Drive, drive with Mimi.
 game3: Mimi the Runner.
 game4: Snakey, eat all the apples. 
 game5: Mimi's plane, dont get crashed!
+game6: memory card, check mimis memory.
 
 screenshots and demos:
+![alt text](pacmipfp-1.png)
+
 

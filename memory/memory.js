@@ -14,7 +14,6 @@ const cardData = [
   { name: "love", img: "love.png" },
   { name: "sad", img: "sad.png" },
   { name: "shocked", img: "shocked.png" },
-
 ];
 
 
@@ -91,7 +90,8 @@ function resetBoard() {
 
 function restart() {
   resetBoard();
-  shuffleCards();
+  cards = [...cardData, ...cardData]; 
+  shuffleCards();                    
   score = 0;
   document.querySelector(".score").textContent = score;
   gridContainer.innerHTML = "";

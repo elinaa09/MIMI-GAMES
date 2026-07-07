@@ -91,6 +91,8 @@ okBtn.addEventListener("click", () => {
 
 skipBtn.addEventListener("click", () => {
   window.location.href = "/menu/menu.html";
+  clickSound.currentTime = 0;
+  clickSound.play();
 });
 
 document.addEventListener("click", (e) => {
