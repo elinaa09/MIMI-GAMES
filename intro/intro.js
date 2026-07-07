@@ -98,11 +98,11 @@ skipBtn.addEventListener("click", () => {
 document.addEventListener("click", (e) => {
 
   if (
-    e.target === yesBtn|| 
+    e.target === yesBtn||   // Above shift
     e.target === noBtn ||
     e.target === okayBtn ||
     e.target === okBtn ||
-    e.target === skipBtn
+    e.target === skipBtn 
   ) {
     return;
   }

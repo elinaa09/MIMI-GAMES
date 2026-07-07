@@ -73,6 +73,7 @@ body {
 }
 
 #skipBtn {
+    background-color: #a07441;
     position: fixed;
     bottom: 20px;
     right: 90px;
