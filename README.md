@@ -1,5 +1,5 @@
 #MIMI-GAMES
-collection of mini games to help our character mimi play
+collection of beginner friendly mini games to help our character mimi play,
 
 #features
 quick introduction with mimi
