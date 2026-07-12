@@ -108,7 +108,7 @@ document.addEventListener("click", (e) => {
   }
 
   if (step === story.length - 1) {
-    window.location.href = "/menu/menu.html";
+    window.location.href = "./menu/menu.html";
     return;
   }
 
