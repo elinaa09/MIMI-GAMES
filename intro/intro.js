@@ -45,7 +45,7 @@ function hideAllButtons() {
 function showStep(index) {
   step = index;
 
-  character.src = story[step].image;
+  character.src = story[step].image;       //vimp
   dialogue.textContent = story[step].text;
 
   hideAllButtons();
@@ -90,7 +90,7 @@ okBtn.addEventListener("click", () => {
 });
 
 skipBtn.addEventListener("click", () => {
-  window.location.href = "/menu/menu.html";
+  window.location.href = "../menu/menu.html";
   clickSound.currentTime = 0;
   clickSound.play();
 });
@@ -108,7 +108,7 @@ document.addEventListener("click", (e) => {
   }
 
   if (step === story.length - 1) {
-    window.location.href = "./menu/menu.html";
+    window.location.href = "../menu/menu.html";
     return;
   }
 

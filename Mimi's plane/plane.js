@@ -129,7 +129,7 @@ function placepoles() {
     }
 
     let randompoleY = -poleHeight + Math.random() * (board.height / 2);
-    let openingSpace = 180;  // fixed gap between top and bottom pole
+    let openingSpace = 180;  // needfixed gap between top and bottom pole!!
 
     let toppole = {
         img : toppoleImg,
